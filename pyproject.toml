@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "paraattn-paper"
+version = "0.1.0"
+description = "Auditable reference implementation of the revised ParaAttn manuscript"
+requires-python = ">=3.9"
+dependencies = [
+  "torch>=2.6,<2.9",
+  "transformers==4.57.6",
+  "peft==0.17.1",
+  "accelerate==1.10.1",
+  "datasets==3.6.0",
+  "sentence-transformers==4.1.0",
+  "numpy>=1.24,<3",
+  "scipy>=1.10,<2",
+]
+
+[project.optional-dependencies]
+cuda = ["bitsandbytes==0.47.0"]
+
+[project.scripts]
+paraattn = "paraattn.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
